@@ -1,269 +1,312 @@
 
-// ============================================
-// ECHOES OF THE HOLLOW
-// CHARACTER SPRITE - THARION
-// Pixel Art RPG Character Renderer
-// ============================================
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Echoes of the Hollow - Heroes</title>
 
-const C = {
-  outline: "#17132c",
-  outline2: "#302449",
-
-  hair: "#d9d6e9",
-  hairLight: "#ffffff",
-  hairDark: "#88849f",
-
-  skin: "#edbd91",
-  skinLight: "#ffdfb9",
-  skinDark: "#a96862",
-
-  armor: "#393052",
-  armorLight: "#75618e",
-  armorDark: "#211d35",
-
-  gold: "#e8b84e",
-  goldLight: "#ffe69a",
-  goldDark: "#97642f",
-
-  cape: "#30204f",
-  capeLight: "#62418c",
-
-  boots: "#29243b",
-  shadow: "#171326",
-
-  weapon: "#8d8ba2",
-  weaponLight: "#ded8ed",
-  weaponDark: "#45435d"
-};
-
-// Pixel rectangle
-function pixel(ctx, x, y, w, h, color) {
-  ctx.fillStyle = color;
-  ctx.fillRect(x, y, w, h);
+<style>
+* {
+  box-sizing: border-box;
 }
 
-// Outline rectangle
-function outline(ctx, x, y, w, h) {
-  pixel(ctx, x, y, w, h, C.outline);
+body {
+  margin: 0;
+  padding: 20px;
+  background: #100e1d;
+  color: #eee8ff;
+  font-family: Arial, sans-serif;
 }
 
-// ============================================
-// THARION BODY
-// ============================================
-
-function drawBody(ctx) {
-
-  // Cape
-  pixel(ctx, -10, 18, 20, 12, C.cape);
-  pixel(ctx, -12, 20, 4, 9, C.outline);
-  pixel(ctx, 8, 20, 4, 9, C.outline);
-  pixel(ctx, -9, 20, 18, 9, C.capeLight);
-  pixel(ctx, -7, 24, 14, 5, C.cape);
-
-  // Legs
-  outline(ctx, -8, 27, 7, 10);
-  outline(ctx, 2, 27, 7, 10);
-
-  pixel(ctx, -7, 28, 5, 7, C.armor);
-  pixel(ctx, 3, 28, 5, 7, C.armor);
-
-  pixel(ctx, -8, 35, 8, 4, C.boots);
-  pixel(ctx, 2, 35, 8, 4, C.boots);
-
-  pixel(ctx, -7, 35, 5, 1, C.gold);
-  pixel(ctx, 3, 35, 5, 1, C.gold);
-
-  // Body armor
-  outline(ctx, -11, 13, 22, 17);
-
-  pixel(ctx, -10, 14, 20, 14, C.armor);
-  pixel(ctx, -8, 14, 16, 3, C.armorLight);
-
-  // Chest plate
-  pixel(ctx, -7, 16, 14, 9, C.armorDark);
-  pixel(ctx, -6, 17, 12, 6, C.armor);
-
-  // Gold chest decoration
-  pixel(ctx, -2, 16, 4, 8, C.gold);
-  pixel(ctx, -1, 17, 2, 5, C.goldLight);
-  pixel(ctx, -5, 20, 10, 2, C.goldDark);
-
-  // Shoulder armor
-  outline(ctx, -14, 13, 8, 7);
-  outline(ctx, 6, 13, 8, 7);
-
-  pixel(ctx, -13, 14, 6, 4, C.armorLight);
-  pixel(ctx, 7, 14, 6, 4, C.armorLight);
-
-  pixel(ctx, -12, 14, 4, 2, C.gold);
-  pixel(ctx, 8, 14, 4, 2, C.gold);
-
-  // Arms
-  outline(ctx, -14, 19, 6, 10);
-  outline(ctx, 8, 19, 6, 10);
-
-  pixel(ctx, -13, 20, 4, 7, C.armor);
-  pixel(ctx, 9, 20, 4, 7, C.armor);
-
-  // Gloves
-  pixel(ctx, -13, 27, 5, 3, C.goldDark);
-  pixel(ctx, 9, 27, 5, 3, C.goldDark);
-
-  // Gold armor details
-  pixel(ctx, -10, 23, 3, 2, C.gold);
-  pixel(ctx, 7, 23, 3, 2, C.gold);
+header {
+  text-align: center;
+  padding: 25px 10px;
 }
 
-// ============================================
-// THARION HEAD
-// ============================================
-
-function drawHead(ctx) {
-
-  // Hair silhouette
-  outline(ctx, -10, -2, 20, 16);
-  pixel(ctx, -9, 0, 18, 11, C.hairDark);
-  pixel(ctx, -8, -2, 16, 10, C.hair);
-
-  // Hair highlights
-  pixel(ctx, -7, -3, 12, 4, C.hairLight);
-  pixel(ctx, -9, 1, 3, 5, C.hairLight);
-  pixel(ctx, 6, 1, 3, 5, C.hairDark);
-
-  // Hair fringe
-  pixel(ctx, -7, 5, 5, 4, C.hairLight);
-  pixel(ctx, -2, 4, 5, 5, C.hair);
-  pixel(ctx, 3, 5, 5, 4, C.hairDark);
-
-  // Face
-  outline(ctx, -7, 5, 14, 12);
-  pixel(ctx, -6, 6, 12, 9, C.skin);
-  pixel(ctx, -5, 7, 10, 7, C.skinLight);
-
-  // Eyes
-  pixel(ctx, -4, 9, 3, 2, C.outline);
-  pixel(ctx, 3, 9, 3, 2, C.outline);
-
-  pixel(ctx, -3, 9, 1, 1, "#ffffff");
-  pixel(ctx, 4, 9, 1, 1, "#ffffff");
-
-  // Eyebrows
-  pixel(ctx, -4, 7, 3, 1, C.hairDark);
-  pixel(ctx, 3, 7, 3, 1, C.hairDark);
-
-  // Nose
-  pixel(ctx, -1, 12, 2, 1, C.skinDark);
-
-  // Beard
-  pixel(ctx, -6, 13, 12, 4, C.hairDark);
-  pixel(ctx, -5, 13, 10, 3, C.hair);
-  pixel(ctx, -4, 15, 8, 3, C.hairLight);
-  pixel(ctx, -2, 17, 4, 2, C.hairDark);
-
-  // Side hair
-  pixel(ctx, -9, 7, 3, 6, C.hair);
-  pixel(ctx, 6, 7, 3, 6, C.hairDark);
+header h1 {
+  color: #e8b84e;
+  letter-spacing: 3px;
+  font-size: 25px;
 }
 
-// ============================================
-// WAR HAMMER WEAPON
-// ============================================
+header p {
+  color: #aaa0c4;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
 
-function drawWarHammer(ctx) {
+.counter {
+  color: #d8c5f5;
+  margin-top: 15px;
+}
 
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+  gap: 15px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.hero {
+  background: #211b35;
+  border: 1px solid #493b61;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  transition: .2s;
+}
+
+.hero:hover {
+  border-color: #e8b84e;
+  transform: translateY(-4px);
+}
+
+.sprite {
+  width: 100%;
+  height: 155px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #171329;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+canvas {
+  width: 130px;
+  height: 130px;
+  image-rendering: pixelated;
+}
+
+.hero h3 {
+  color: #f0d28b;
+  font-size: 15px;
+  margin: 8px 0;
+}
+
+.hero p {
+  font-size: 11px;
+  color: #bdb2d5;
+  margin: 5px;
+}
+
+.tag {
+  display: inline-block;
+  background: #393052;
+  color: #e8c779;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-size: 10px;
+  margin-top: 5px;
+}
+
+footer {
+  text-align: center;
+  color: #776d91;
+  font-size: 11px;
+  padding: 35px 0;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>ECHOES OF THE HOLLOW</h1>
+  <p>HERO COLLECTION · PIXEL ART RPG</p>
+  <div class="counter" id="counter">20 CHARACTERS</div>
+</header>
+
+<main class="grid" id="heroGrid"></main>
+
+<footer>
+  CHARACTER PREVIEW SYSTEM · VERSION 1.0
+</footer>
+
+<script type="module">
+
+// ======================================
+// IMPORT THARION SPRITE
+// ======================================
+
+let drawTharionSprite = null;
+
+try {
+  const art = await import("./src/hero-art.js");
+  drawTharionSprite = art.drawTharionSprite;
+} catch (error) {
+  console.warn("Sprite Tharion belum ditemukan.", error);
+}
+
+// ======================================
+// 20 HERO DATA
+// ======================================
+
+const heroes = [
+  ["Tharion", "Lightning", "War Hammer"],
+  ["Hero 02", "Fire", "Flame Sword"],
+  ["Hero 03", "Water", "Trident"],
+  ["Hero 04", "Ice", "Ice Blade"],
+  ["Hero 05", "Earth", "Earth Axe"],
+  ["Hero 06", "Wind", "Wind Bow"],
+  ["Hero 07", "Light", "Holy Staff"],
+  ["Hero 08", "Dark", "Shadow Scythe"],
+  ["Hero 09", "Nature", "Nature Spear"],
+  ["Hero 10", "Thunder", "Thunder Spear"],
+  ["Hero 11", "Fire", "Twin Daggers"],
+  ["Hero 12", "Water", "Water Staff"],
+  ["Hero 13", "Ice", "Frost Bow"],
+  ["Hero 14", "Earth", "Stone Hammer"],
+  ["Hero 15", "Wind", "Wind Blade"],
+  ["Hero 16", "Light", "Light Sword"],
+  ["Hero 17", "Dark", "Dark Katana"],
+  ["Hero 18", "Nature", "Forest Staff"],
+  ["Hero 19", "Lightning", "Storm Axe"],
+  ["Hero 20", "Arcane", "Magic Grimoire"]
+];
+
+// ======================================
+// CREATE HERO CARDS
+// ======================================
+
+const grid = document.getElementById("heroGrid");
+
+heroes.forEach((hero, index) => {
+
+  const card = document.createElement("section");
+  card.className = "hero";
+
+  const id = index + 1;
+
+  card.innerHTML = `
+    <div class="sprite">
+      <canvas width="100" height="100"
+        id="sprite-${id}"></canvas>
+    </div>
+
+    <h3>${hero[0]}</h3>
+    <p>Element: ${hero[1]}</p>
+    <p>Weapon: ${hero[2]}</p>
+    <span class="tag">
+      ${id === 1 ? "MAIN HERO" : "HERO " + String(id).padStart(2,"0")}
+    </span>
+  `;
+
+  grid.appendChild(card);
+});
+
+// ======================================
+// TEMPORARY PIXEL HERO
+// ======================================
+
+function drawPlaceholder(ctx, index, time) {
+
+  const colors = [
+    "#e8b84e", "#d95b39", "#399dd9",
+    "#9bd9ee", "#8a7650", "#8bd6d2",
+    "#fff0a0", "#7950a5", "#5caa63",
+    "#a9a0ef"
+  ];
+
+  const color = colors[index % colors.length];
+
+  const bob = Math.sin(time * 0.003 + index) * 2;
+
+  ctx.clearRect(0, 0, 100, 100);
   ctx.save();
-
-  // Weapon position on the right side
-  ctx.translate(18, 3);
-
-  // Handle
-  pixel(ctx, 1, 1, 3, 31, C.outline);
-  pixel(ctx, 2, 2, 1, 28, "#81552f");
-  pixel(ctx, 3, 3, 1, 25, C.goldDark);
-
-  // Handle grip
-  pixel(ctx, 1, 20, 4, 2, C.gold);
-  pixel(ctx, 1, 25, 4, 2, C.gold);
-
-  // Hammer head outline
-  outline(ctx, -5, -6, 16, 12);
-
-  // Hammer head
-  pixel(ctx, -4, -5, 14, 10, C.weapon);
-  pixel(ctx, -3, -6, 12, 2, C.weaponLight);
-
-  // Hammer face
-  pixel(ctx, -5, -4, 3, 8, C.weaponDark);
-  pixel(ctx, 9, -4, 3, 8, C.weaponDark);
-
-  // Golden ornament
-  pixel(ctx, -2, -3, 10, 2, C.gold);
-  pixel(ctx, 1, -1, 4, 4, C.goldLight);
-  pixel(ctx, -2, 3, 10, 2, C.goldDark);
-
-  // Hammer jewel
-  pixel(ctx, 1, 0, 3, 2, "#a56cff");
-
-  // Top decoration
-  pixel(ctx, 0, -9, 5, 3, C.gold);
-  pixel(ctx, 1, -11, 3, 2, C.goldLight);
-
-  ctx.restore();
-}
-
-// ============================================
-// COMPLETE CHARACTER
-// ============================================
-
-export function drawTharionSprite(
-  ctx,
-  x,
-  y,
-  scale = 3,
-  time = 0
-) {
-
-  ctx.save();
-
-  ctx.translate(x, y);
-  ctx.scale(scale, scale);
-
-  // Disable smoothing for pixel art
-  ctx.imageSmoothingEnabled = false;
-
-  // Ground shadow
-  pixel(ctx, -12, 39, 26, 3, C.shadow);
-
-  // Subtle idle animation
-  const bob = Math.sin(time * 0.003) * 0.5;
-
   ctx.translate(0, bob);
 
-  // Back weapon first
-  drawWarHammer(ctx);
+  // Shadow
+  ctx.fillStyle = "#090813";
+  ctx.fillRect(28, 82, 44, 5);
 
-  // Character
-  drawBody(ctx);
-  drawHead(ctx);
+  // Cape
+  ctx.fillStyle = "#30204f";
+  ctx.fillRect(29, 38, 42, 38);
+  ctx.fillRect(24, 45, 8, 26);
 
-  // Front armor details
-  pixel(ctx, -4, 25, 8, 2, C.gold);
-  pixel(ctx, -2, 26, 4, 2, C.goldLight);
+  // Legs
+  ctx.fillStyle = "#29243b";
+  ctx.fillRect(35, 68, 12, 15);
+  ctx.fillRect(53, 68, 12, 15);
+
+  // Boots
+  ctx.fillStyle = "#17132c";
+  ctx.fillRect(32, 81, 17, 6);
+  ctx.fillRect(51, 81, 17, 6);
+
+  // Body outline
+  ctx.fillStyle = "#17132c";
+  ctx.fillRect(25, 35, 50, 38);
+
+  // Armor
+  ctx.fillStyle = "#393052";
+  ctx.fillRect(28, 38, 44, 31);
+
+  ctx.fillStyle = color;
+  ctx.fillRect(33, 42, 34, 5);
+  ctx.fillRect(44, 48, 12, 16);
+
+  // Arms
+  ctx.fillStyle = "#17132c";
+  ctx.fillRect(19, 43, 11, 26);
+  ctx.fillRect(70, 43, 11, 26);
+
+  ctx.fillStyle = "#75618e";
+  ctx.fillRect(21, 45, 7, 20);
+  ctx.fillRect(72, 45, 7, 20);
+
+  // Head
+  ctx.fillStyle = "#17132c";
+  ctx.fillRect(32, 9, 36, 34);
+
+  ctx.fillStyle = "#d9d6e9";
+  ctx.fillRect(35, 8, 30, 12);
+  ctx.fillRect(32, 16, 36, 17);
+
+  ctx.fillStyle = "#edbd91";
+  ctx.fillRect(37, 22, 26, 16);
+
+  // Eyes
+  ctx.fillStyle = "#17132c";
+  ctx.fillRect(41, 27, 5, 3);
+  ctx.fillRect(54, 27, 5, 3);
 
   ctx.restore();
 }
 
-// ============================================
-// HERO INFORMATION
-// ============================================
+// ======================================
+// ANIMATION
+// ======================================
 
-export const THARION = {
-  id: "tharion",
-  name: "Tharion",
-  element: "lightning",
-  weapon: "War Hammer",
-  level: 1,
-  hp: 120,
-  mp: 80,
-  sprite: drawTharionSprite
-};
+function animate(time) {
+
+  heroes.forEach((hero, index) => {
+
+    const canvas = document.getElementById(
+      "sprite-" + (index + 1)
+    );
+
+    const ctx = canvas.getContext("2d");
+    ctx.imageSmoothingEnabled = false;
+
+    if (index === 0 && drawTharionSprite) {
+      ctx.clearRect(0, 0, 100, 100);
+      drawTharionSprite(ctx, 50, 30, 1.7, time);
+    } else {
+      drawPlaceholder(ctx, index, time);
+    }
+
+  });
+
+  requestAnimationFrame(animate);
+}
+
+animate(0);
+
+</script>
+
+</body>
+</html>
