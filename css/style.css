@@ -1,0 +1,40 @@
+:root{--bg:#0b0f1a;--fg:#eef2fb;--panel:rgba(12,16,28,.78);--acc:#ffd36e;--sa-t:env(safe-area-inset-top,0px);--sa-l:env(safe-area-inset-left,0px);--sa-b:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,sans-serif;touch-action:none;user-select:none;-webkit-user-select:none}
+#game{position:fixed;inset:0;width:100%;height:100%;display:block;image-rendering:pixelated}
+#hud{position:fixed;top:calc(6px + var(--sa-t));left:calc(8px + var(--sa-l));display:flex;flex-direction:column;gap:4px}
+#clock{align-self:flex-start;font-size:12px;background:var(--panel);padding:3px 9px;border-radius:999px}
+.row{display:flex;gap:4px}
+#hud button{border:1px solid #3a4560;background:var(--panel);color:var(--fg);padding:4px 9px;border-radius:999px;font-size:11px}
+#hud button.on{background:var(--acc);color:#1a1405;border-color:var(--acc);font-weight:600}
+#stick{position:fixed;left:calc(28px + var(--sa-l));bottom:calc(24px + var(--sa-b));width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.25);touch-action:none}
+#knob{position:absolute;left:30px;top:30px;width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,.4);pointer-events:none}
+#start,#rot{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:rgba(11,15,26,.94);text-align:center;padding:16px}
+#start{z-index:5}#start h1{margin:0;font-size:34px;color:var(--acc);letter-spacing:.02em}#start p{margin:0;font-size:16px}#start small{opacity:.65}
+#rot{display:none;z-index:9;font-size:18px}
+@media (orientation:portrait){#rot{display:flex}}
+#game{image-rendering:auto}
+#stat{align-self:flex-start;font-size:11px;background:var(--panel);padding:3px 9px;border-radius:999px}
+#pause{position:fixed;top:calc(6px + var(--sa-t));right:calc(8px + env(safe-area-inset-right,0px));border:1px solid #3a4560;background:var(--panel);color:var(--fg);width:36px;height:30px;border-radius:999px}
+.scr{position:fixed;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:10px;z-index:6;text-align:center;padding:12px}
+.scr.on{display:flex}
+#menu{background:radial-gradient(ellipse at 50% 30%,rgba(11,15,26,.3),rgba(11,15,26,.85))}
+#menu h1{margin:0;font-size:clamp(34px,9vh,56px);color:var(--acc);text-shadow:0 0 18px rgba(255,211,110,.6)}
+#menu p{margin:0 0 6px;opacity:.8;font-size:14px}
+.big{width:min(260px,60vw);padding:10px;border-radius:12px;border:1px solid #3a4560;background:rgba(24,32,58,.92);color:var(--fg);font-size:15px}
+.big.main{background:var(--acc);color:#1a1405;border-color:var(--acc);font-weight:700}
+.big[disabled]{opacity:.4}
+#set{z-index:7;background:rgba(11,15,26,.95);justify-content:flex-start;overflow:auto}
+.tabs,.pre{display:flex;gap:6px;justify-content:center;margin:4px 0}
+.tabs button,.pre button{border:1px solid #3a4560;background:#18203a;color:var(--fg);padding:6px 12px;border-radius:999px;font-size:13px}
+.tabs button.on{background:var(--acc);color:#1a1405;border-color:var(--acc);font-weight:600}
+.p{width:min(520px,94vw);text-align:left}
+.p label{display:flex;align-items:center;gap:10px;margin:7px 0;font-size:13px}
+.p label span{flex:0 0 140px}.p input[type=range]{flex:1;accent-color:var(--acc)}.p output{width:38px;text-align:right;opacity:.7}
+#dlg{z-index:6;background:linear-gradient(#1a2440,#0b0f1a);justify-content:flex-end;align-items:stretch;cursor:pointer}
+#dlg #pt{align-self:center;height:min(50vh,220px);width:auto}
+.box{background:rgba(12,16,28,.92);border:1px solid #3a4560;border-radius:14px;padding:12px 16px;margin:0 8px calc(10px + var(--sa-b));text-align:left;font-size:15px;line-height:1.4}
+.box b{display:block;color:var(--acc);margin-bottom:4px}.box small{display:block;opacity:.5;font-size:11px;margin-top:6px;text-align:right}
+#cap{position:fixed;left:0;right:0;bottom:16vh;text-align:center;font-size:clamp(16px,4.4vh,26px);text-shadow:0 2px 8px #000;z-index:4;pointer-events:none;padding:0 12px;transition:opacity .6s;opacity:0}
+#cap.on{opacity:1}
+body.menu #hud,body.menu #stick,body.menu #pause,body.cine #stick,body.cine #hud,body.cine #pause,body.dlg #stick,body.dlg #pause{display:none}
