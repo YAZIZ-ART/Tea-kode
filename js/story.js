@@ -2,10 +2,10 @@
 const LK=window.LK,$=id=>document.getElementById(id),P=LK.player,M=$('menu'),cap=$('cap');
 M.innerHTML='<h1>Lampu Kota</h1><p>Kota punya seribu lampu</p><button class="big main" id="bPlay">Play Game</button><button class="big" id="bCont">Lanjutkan</button><button class="big" id="bSet">Pengaturan</button>';
 LK.openMenu=p=>{LK.paused=p;LK.setState('menu');M.classList.add('on');$('bCont').disabled=!p&&!LK.hasSave()};
-function boot(){LK.audio.start();LK.applyCfg();M.classList.remove('on');
+function boot(){try{LK.audio.start();LK.applyCfg();LK.audio.music()}catch(e){LK.err(e)}
  try{const e=document.documentElement;if(e.requestFullscreen&&!document.fullscreenElement)e.requestFullscreen().then(()=>screen.orientation&&screen.orientation.lock&&screen.orientation.lock('landscape').catch(()=>{})).catch(()=>{})}catch(e){}}
-$('bPlay').onclick=()=>{boot();LK.paused=false;LK.startCine()};
-$('bCont').onclick=()=>{boot();if(!LK.paused)LK.load();LK.paused=false;LK.setState('play')};
+$('bPlay').onclick=()=>{M.classList.remove('on');LK.paused=false;LK.startCine();boot()};
+$('bCont').onclick=()=>{M.classList.remove('on');if(!LK.paused)LK.load();LK.paused=false;LK.setState('play');boot()};
 $('bSet').onclick=()=>LK.openSet();
 $('pause').onclick=()=>LK.openMenu(true);
 const CAP=[[0,4,'Kota ini punya seribu lampu.'],[4,8,'Tapi tidak satu pun menyala untuk kami.'],[8,13,'<b>RAKA</b>, 16 tahun.<br>Siswa kelas 11 SMA Nusa Bangsa.'],[13,18,'Pendiam. Keras kepala. Cekatan.'],[18,23,'Ibunya buruh pabrik shift malam.<br>Sewa kontrakan hampir tak terbayar.'],[23,27,'Isi dompet: <b>Rp 140.000</b>.<br>Sewa jatuh tempo 25 hari lagi.'],[27,30,'Hari ini, semuanya dimulai.']];
