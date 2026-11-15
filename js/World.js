@@ -68,5 +68,5 @@ function glow(c,list,cx,cy,E){
    c.globalAlpha=E.dark*.7;c.fillStyle='#ffc870';wins(o,(wx,wy,q)=>{if(q<E.dark*1.1)c.fillRect(wx-cx,wy-cy,6,6)})}}
  c.globalAlpha=1;c.globalCompositeOperation='source-over'}
 function hit(x,y){const l=x-3,t=y-3;for(const r of solids)if(l<r.x+r.w&&l+6>r.x&&t<r.y+r.h&&t+3>r.y)return true;return false}
-LK.world={T,W:WW,H:WH,puddles,ground,drawPuddles,visible,shadow,drawObj,glow,hit,isRoad,spawn:{x:4*T+8,y:10*T}};
+LK.world={T,W:WW,H:WH,puddles,ground,drawPuddles,visible,shadow,drawObj,glow,hit,isRoad,wins,objs,spawn:{x:4*T+8,y:10*T}};
 })();
