@@ -38,3 +38,4 @@ html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--
 #cap{position:fixed;left:0;right:0;bottom:16vh;text-align:center;font-size:clamp(16px,4.4vh,26px);text-shadow:0 2px 8px #000;z-index:4;pointer-events:none;padding:0 12px;transition:opacity .6s;opacity:0}
 #cap.on{opacity:1}
 body.menu #hud,body.menu #stick,body.menu #pause,body.cine #stick,body.cine #hud,body.cine #pause,body.dlg #stick,body.dlg #pause{display:none}
+#err{position:fixed;left:6px;right:6px;bottom:4px;z-index:20;font:10px monospace;color:#ff8a8a;background:rgba(0,0,0,.65);display:none;pointer-events:none;max-height:30vh;overflow:hidden}
