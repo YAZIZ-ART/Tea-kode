@@ -23,5 +23,5 @@ const A=LK.audio={
   const g=C.createGain();g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(1,t+.3);g.gain.exponentialRampToValueAtTime(.0001,t+d);s.connect(l);l.connect(g);g.connect(M);s.start(t,0,d+.1)},
  splash(){if(!C)return;const t=C.currentTime,s=C.createBufferSource();s.buffer=nb;const f=C.createBiquadFilter();f.type='bandpass';f.frequency.value=R(1500,2500);const g=C.createGain();g.gain.setValueAtTime(.12,t);g.gain.exponentialRampToValueAtTime(.0001,t+.12);s.connect(f);f.connect(g);g.connect(M);s.start(t,Math.random()*2,.15)},
  setVol(m,a){if(!C)return;M.gain.setTargetAtTime(m,C.currentTime,.05);A.amb.gain.setTargetAtTime(a,C.currentTime,.05)},
- mute(m){muted=m;if(M)M.gain.setTargetAtTime(m?0:.8,C.currentTime,.05)},isMuted:()=>muted};
+ mute(m){muted=m;if(M)M.gain.setTargetAtTime(m?0:.8,C.currentTime,.05)},isMuted:()=>muted,_(){return{C,M,nb,tone}}};
 })();
